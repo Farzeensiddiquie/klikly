@@ -43,3 +43,8 @@ body{
   
  
 }
+.cta{
+  background-image: url('../public/images/ctabg.jpg') ;
+  background-size: cover;
+ 
+}

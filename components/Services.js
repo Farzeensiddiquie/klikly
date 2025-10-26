@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Services() {
   const cardVariants = {
@@ -33,19 +34,22 @@ export default function Services() {
             desc: "Create cohesive, memorable brand identities that make you stand out.",
             gradient:
               "bg-[radial-gradient(circle_at_top_right,_#06572e_0%,_rgba(4,28,17,0.4)_47%),linear-gradient(135deg,_rgba(4,28,0,0.8)_0%,_#070e0a_100%)]",
-          },
+          image:"/images/icon1.png"
+            },
           {
             title: "Web UI/UX Design",
             desc: "Design intuitive, conversion-driven websites your customers will love.",
             gradient:
               "bg-[radial-gradient(circle_at_bottom_left,_#06572e_0%,_rgba(4,28,17,0.4)_47%),linear-gradient(135deg,_rgba(4,28,0,0.8)_0%,_#070e0a_100%)]",
-          },
+          image:"/images/icon2.png"
+            },
           {
-            title: "Video Editing & Content Creation",
+            title: "Video Editing & Animation",
             desc: "Bring your brand to life with engaging visuals and animations.",
             gradient:
               "bg-[radial-gradient(circle_at_top_right,_#06572e_0%,_rgba(4,28,17,0.4)_47%),linear-gradient(135deg,_rgba(4,28,0,0.8)_0%,_#070e0a_100%)]",
-          },
+          image:"/images/icon3.png"
+            },
         ].map((service, i) => (
           <motion.div
             key={i}
@@ -62,11 +66,12 @@ export default function Services() {
               <h3 className="text-lg md:text-xl font-medium mb-3">
                 {service.title}
               </h3>
-              <p className="text-gray-400 text-sm md:text-[13px] leading-relaxed max-w-xs">
+              <p className="text-gray-400 font-mono text-sm md:text-[13px] leading-relaxed max-w-xs">
                 {service.desc}
               </p>
+              <Image src={service.image} alt="image" width={150} height={150} className="mt-7"/>
             </div>
-          </motion.div>
+          </motion.div> 
         ))}
       </div>
     </section>

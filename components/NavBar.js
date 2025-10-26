@@ -21,11 +21,10 @@ export default function NavBar() {
   return (
     <div className="bg-[#024f27]/60 md:border-t-2 md:border-[#00622b] backdrop-blur-sm shadow-2xl w-full h-14 md:rounded-3xl max-w-280 relative lg:top-5 flex items-center justify-between px-6 z-50">
       {/* Left Logo */}
-      <div className={`flex items-center gap-3 ${roboto.className}`}>
-        <div className="bg-[#0F2815] w-9 h-9 flex items-center justify-center rounded-full text-2xl">
-          K
-        </div>
-        <div className="text-xl tracking-wide">KLIKLY</div>
+      <div className='flex items-center gap-3 '> 
+       <div className="text-[#00FF84] text-2xl font-mono font-extrabold">
+            Kl!kly
+          </div>
       </div>
 
       {/* Right Section */}
@@ -42,7 +41,7 @@ export default function NavBar() {
               key={href}
               href={href}
               className={`transition hover:text-white ${
-                pathname === href ? "text-[#01ff83]" : "text-white/70"
+                pathname === href ? "text-white" : "text-white/70"
               }`}
             >
               {label}

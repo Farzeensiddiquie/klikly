@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
+import CircularCursor from "./CursorComponent";
 
 const faqData = [
   {
@@ -24,22 +25,38 @@ const faqData = [
     answer:
       "Yes, I use Node.js, Express.js, and Firebase for backend development including APIs, authentication, and database management.",
   },
+   {
+    question: "Do you build mobile applications?",
+    answer:
+      "Yes! I work with React Native and Firebase to create performant, cross-platform mobile apps.",
+  },
+   {
+    question: "Do you build mobile applications?",
+    answer:
+      "Yes! I work with React Native and Firebase to create performant, cross-platform mobile apps.",
+  }
 ];
 
 export default function Faqs() {
   const [activeIndex, setActiveIndex] = useState(null);
-
+const [hover, setHover] = useState(false);
   const toggleFaq = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
-    <section className="w-full py-20 flex flex-col items-center bg-gradient-to-b from-black/10 via-[#051d13]/60 to-black/10">
+    <section className="w-full z-100 py-20 flex flex-col items-center bg-gradient-to-b from-black/10 via-[#051d13]/60 to-black/10 ">
+           
+
       <h2 className="text-3xl md:text-4xl font-semibold mb-12 text-white tracking-wide text-center">
         Frequently Asked Questions
       </h2>
 
-      <div className="w-full max-w-280 flex flex-col gap-4 px-4">
+      <div
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      className="w-full max-w-280 flex flex-col gap-1">
+         <CircularCursor text="FAQS" visible={hover} />
         {faqData.map((faq, index) => {
           const isOpen = activeIndex === index;
           return (
@@ -71,7 +88,7 @@ export default function Faqs() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: isOpen ? 1 : 0 }}
                 transition={{ opacity: { duration: 0.25 } }}
-                className="px-5 md:px-6 pb-5 text-gray-300 text-sm md:text-base"
+                className="px-5 md:px-6  text-gray-300 text-sm md:text-base"
               >
                 {isOpen && faq.answer}
               </motion.div>

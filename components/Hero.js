@@ -15,10 +15,10 @@ const roboto = localFont({
 
 export default function Hero() {
   return (
-    <div className='h-[120vh] items-center  text-white'>
+    <div className='items-center  text-white'>
     <BackgroundEffects/>
     <div className='flex  items-center justify-center'><NavBar/></div>
-   <div className='flex justify-center'>
+   <div className='flex min-h-[90vh] mt-10 lg:mt-0 justify-center'>
     <div className='lg:max-w-280 justify-center flex flex-col lg:flex-row items-center'>
       <div className='max-w-120'>
       <p className={`text-white  text-xl lg:text-start text-center lg:text-xl capitalize ${roboto.className}`} >Innovation isn’t coming</p>

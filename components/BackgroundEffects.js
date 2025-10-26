@@ -6,7 +6,7 @@ export default function BackgroundEffects() {
     <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
       {/* 🌿 Green Glow Orbs */}
       <div
-        className="absolute top-1 -left-20 w-[500px] h-[500px] md:top-0 md:-left-40 md:w-[800px] md:h-[600px] rounded-full opacity-30"
+        className="absolute top-1 -left-20 w-[500px] h-[500px] md:top-0 sm:-left-40 sm:w-[800px] sm:h-[600px] rounded-full opacity-30"
         style={{
           background:
             "radial-gradient(circle, #58E877 0%, rgba(88, 232, 119, 0.4) 30%, rgba(88, 232, 119, 0.1) 60%, transparent 80%)",

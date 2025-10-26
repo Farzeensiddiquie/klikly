@@ -1,33 +1,74 @@
-import React from 'react'
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
 
 export default function Services() {
-  return (
-    <div className='h-screen flex flex-col gap-20  items-center text-4xl font-bold'>
-      <p>Services We Provide</p>
-      <div className='flex justify-between w-280'>
-       <div className="w-70 h-80 rounded-2xl p-[1px]
-    bg-gradient-to-r from-[#092e1b] to-[#1f7e4f]">
-  <div className="w-full h-full rounded-2xl
-      bg-[radial-gradient(circle_at_top_right,_#055B30_0%,_rgba(4,28,17,0.4)_47%),linear-gradient(135deg,_rgba(4,28,0,2.71)_0%,_rgba(3,87,0,1.7)_100%)]">
-    
-  </div>
-</div>
-              <div className="w-70 h-80 rounded-2xl p-[1px]
-    bg-gradient-to-b from-[#092e1b] to-[#1f7e4f]">
-  <div className="w-full h-full rounded-2xl
-      bg-[radial-gradient(circle_at_bottom_left,_#055B30_0%,_rgba(4,28,17,0.4)_47%),linear-gradient(135deg,_rgba(4,28,0,2.71)_0%,_rgba(3,87,0,1.7)_100%)]">
-    
-  </div>
-</div>
-             <div className="w-70 h-80 rounded-2xl p-[1px]
-    bg-gradient-to-r from-[#092e1b] to-[#1f7e4f]">
-  <div className="w-full h-full rounded-2xl
-      bg-[radial-gradient(circle_at_top_right,_#055B30_0%,_rgba(4,28,17,0.4)_47%),linear-gradient(135deg,_rgba(4,28,0,2.71)_0%,_rgba(3,87,0,1.7)_100%)]">
-    
-  </div>
-</div>
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.95 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { delay: i * 0.2, duration: 0.6, ease: "easeOut" },
+    }),
+  };
 
+  return (
+    <section className="min-h-screen flex flex-col justify-center items-center px-6 md:px-12 lg:px-20 py-20 bg-black text-white text-center overflow-hidden">
+      {/* Section Title */}
+      <motion.h2
+        initial={{ opacity: 0, y: -40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-14"
+      >
+        Services We Provide
+      </motion.h2>
+
+      {/* Cards Container */}
+      <div className="flex flex-col md:flex-row flex-wrap justify-center items-center gap-8 md:gap-20 max-w-7xl">
+        {[
+          {
+            title: "Brand Identity & Logo Design",
+            desc: "Create cohesive, memorable brand identities that make you stand out.",
+            gradient:
+              "bg-[radial-gradient(circle_at_top_right,_#06572e_0%,_rgba(4,28,17,0.4)_47%),linear-gradient(135deg,_rgba(4,28,0,0.8)_0%,_#070e0a_100%)]",
+          },
+          {
+            title: "Web UI/UX Design",
+            desc: "Design intuitive, conversion-driven websites your customers will love.",
+            gradient:
+              "bg-[radial-gradient(circle_at_bottom_left,_#06572e_0%,_rgba(4,28,17,0.4)_47%),linear-gradient(135deg,_rgba(4,28,0,0.8)_0%,_#070e0a_100%)]",
+          },
+          {
+            title: "Video Editing & Content Creation",
+            desc: "Bring your brand to life with engaging visuals and animations.",
+            gradient:
+              "bg-[radial-gradient(circle_at_top_right,_#06572e_0%,_rgba(4,28,17,0.4)_47%),linear-gradient(135deg,_rgba(4,28,0,0.8)_0%,_#070e0a_100%)]",
+          },
+        ].map((service, i) => (
+          <motion.div
+            key={i}
+            custom={i}
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="relative w-72 sm:w-80 h-80 p-[1px] rounded-2xl bg-gradient-to-r from-[#092e1b] to-[#1f7e4f] hover:scale-105 transition-transform duration-500"
+          >
+            <div
+              className={`w-full h-full rounded-2xl flex flex-col  items-center p-6 ${service.gradient}`}
+            >
+              <h3 className="text-lg md:text-xl font-medium mb-3">
+                {service.title}
+              </h3>
+              <p className="text-gray-400 text-sm md:text-[13px] leading-relaxed max-w-xs">
+                {service.desc}
+              </p>
+            </div>
+          </motion.div>
+        ))}
       </div>
-    </div>
-  )
+    </section>
+  );
 }

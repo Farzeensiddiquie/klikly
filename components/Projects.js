@@ -3,6 +3,7 @@ import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import React, { useRef, useEffect } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
+import Image from "next/image";
 
 export default function Projects() {
   const projects = [
@@ -39,21 +40,14 @@ export default function Projects() {
       buttonText: "View Project",
       link: "#",
     },
-    {
-      id: 4,
-      label: "Portfolio",
-      title: "Creative Portfolio",
-      description:
-        "A sleek personal portfolio showcasing 3D models and smooth scroll animations.",
-      tags: ["React Three Fiber", "GSAP", "ScrollTrigger"],
-      image: "/images/project1.jpg",
-      buttonText: "View Project",
-      link: "#",
-    },
+   
   ];
 
   return (
-    <section className="w-full py-20 flex flex-col items-center bg-gradient-to-b from-black/10 via-[#051d13]/60 to-black/10">
+    <section
+      id="projects"
+      className="w-full py-20 flex flex-col items-center bg-gradient-to-b from-black/10 via-[#051d13]/60 to-black/10"
+    >
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -69,6 +63,21 @@ export default function Projects() {
           <AnimatedCard key={project.id} project={project} index={i} />
         ))}
       </div>
+       <Link href="/portfolio">
+  <motion.div
+    initial={{ opacity: 0, scale: 0.9, y: 10 }}
+    whileInView={{ opacity: 1, scale: 1, y: 0 }}
+    transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+    viewport={{ once: true }}
+    className="text-gray-300 mt-10 bg-[#0a1c12]/30 border border-[#1f3a29]/50
+    rounded-3xl text-sm px-6 py-3 cursor-pointer hover:bg-[#01ff83]/20
+    hover:border-[#01ff83]/50 transition-all duration-300"
+  >
+    View more
+  </motion.div>
+</Link>
+
+      
     </section>
   );
 }
@@ -80,8 +89,7 @@ function AnimatedCard({ project, index }) {
 
   useEffect(() => {
     if (inView) {
-      // Ensure first card animates visibly on reload
-      const delay = index === 0 ? 0.2 : index * 0.15;
+      const delay = index * 0.15 + 0.2;
       controls.start("visible", { delay });
     }
   }, [inView, controls, index]);
@@ -89,21 +97,19 @@ function AnimatedCard({ project, index }) {
   const variants = {
     hidden: {
       opacity: 0,
-      x: index % 2 === 0 ? -100 : 100,
-      y: 50,
-      scale: 0.9,
-      rotateX: 10,
+      x: index % 2 === 0 ? -80 : 80,
+      y: 40,
+      scale: 0.95,
     },
     visible: {
       opacity: 1,
       x: 0,
       y: 0,
       scale: 1,
-      rotateX: 0,
       transition: {
         type: "spring",
-        stiffness: 120,
-        damping: 16,
+        stiffness: 100,
+        damping: 18,
       },
     },
   };
@@ -114,32 +120,26 @@ function AnimatedCard({ project, index }) {
       variants={variants}
       initial="hidden"
       animate={controls}
-      className={`group flex flex-col md:flex-row items-center justify-between bg-[#0a1c12]/20 border border-[#1f3a29] rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300 ${
+      className={`group flex flex-col md:flex-row items-center gap-6 bg-[#0a1c12]/30 border border-[#1f3a29]/50 rounded-2xl overflow-hidden p-5 md:p-7 backdrop-blur-sm hover:shadow-lg hover:shadow-[#01ff85]/10 transition-all duration-500 ${
         index % 2 === 1 ? "md:flex-row-reverse" : ""
       }`}
     >
       {/* Text Section */}
-      <motion.div
-        className="flex-1 w-full p-6 md:p-10 text-white"
-        whileHover={{ scale: 1.02 }}
-        transition={{ type: "spring", stiffness: 200, damping: 16 }}
-      >
-        <div className="flex flex-col gap-5 mb-3">
-          <span className="text-sm text-[#01ff83] font-semibold bg-[#01ff83]/10 px-3 py-1 rounded-full w-fit">
-            {project.label}
-          </span>
-          <h3 className="text-2xl font-bold">{project.title}</h3>
-        </div>
+      <div className="flex flex-col gap-5 text-white w-full md:w-[55%]">
+        <span className="text-sm text-[#01ff83] font-semibold bg-[#01ff83]/10 px-3 py-1 rounded-full w-fit">
+          {project.label}
+        </span>
+        <h3 className="text-2xl font-bold">{project.title}</h3>
 
-        <p className="text-gray-400 text-sm md:text-base mb-8 leading-relaxed">
+        <p className="text-gray-300 text-sm md:text-base leading-relaxed">
           {project.description}
         </p>
 
-        <div className="flex flex-wrap gap-3 mb-6">
+        <div className="flex flex-wrap gap-3">
           {project.tags.map((tag, i) => (
             <span
               key={i}
-              className="text-sm bg-[#06180f]/40 text-gray-300 px-4 py-1.5 rounded-full border border-[#2e7450]/30"
+              className="text-sm bg-[#06180f]/50 text-gray-300 px-4 py-1.5 rounded-full border border-[#2e7450]/40"
             >
               {tag}
             </span>
@@ -148,27 +148,32 @@ function AnimatedCard({ project, index }) {
 
         <Link
           href={project.link}
-          className="flex items-center gap-2 text-[#01ff83] hover:text-[#17ff95] transition-colors"
+          className="flex items-center gap-2 text-[#01ff83] hover:text-[#17ff95] transition-colors font-medium"
         >
           {project.buttonText}
           <div className="w-6 h-6 flex justify-center items-center bg-[#01ff83] text-[#0f1a11] rounded-full group-hover:translate-x-1 transition-transform duration-300">
             <ChevronRight size={18} />
           </div>
         </Link>
-      </motion.div>
+      </div>
 
       {/* Image Section */}
       <motion.div
-        whileHover={{ scale: 1.07 }}
-        transition={{ type: "spring", stiffness: 220, damping: 14 }}
-        className="flex-1 w-full md:m-2 md:w-[45%] h-56 md:h-72 overflow-hidden"
+        whileHover={{ scale: 1.04 }}
+        transition={{ type: "spring", stiffness: 200, damping: 14 }}
+        className="relative w-full md:w-[45%] aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-xl"
       >
-        <img
+        <Image
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover md:rounded rounded-t-xl"
+          fill
+          priority
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover object-center transition-all duration-700 ease-out group-hover:scale-110 group-hover:brightness-110"
         />
       </motion.div>
+     
     </motion.div>
+    
   );
 }

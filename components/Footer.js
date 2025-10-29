@@ -19,9 +19,8 @@ export default function Footer() {
         <nav className="flex gap-6 text-gray-400 text-sm font-medium mb-4 md:mb-0">
           <Link href="/" className="hover:text-[#00FF84] transition">Home</Link>
           <Link href="/about" className="hover:text-[#00FF84] transition">About</Link>
-          <Link href="/services" className="hover:text-[#00FF84] transition">Service</Link>
-          <Link href="/work" className="hover:text-[#00FF84] transition">Work</Link>
-          <Link href="/faqs" className="hover:text-[#00FF84] transition">FAQs</Link>
+          <Link href="/portfolio" className="hover:text-[#00FF84] transition">Work</Link>
+          <a href="/#faqs" className="hover:text-[#00FF84] transition">FAQs</a>
         </nav>
 
         {/* Right Section */}

@@ -15,7 +15,7 @@ export default function Home() {
       <ProjectBackground />
       <Projects />
     </div>
-    <div className="relative min-h-screen">
+    <div className="relative ">
       <FaqBackground/>
        <Faqs/>
        </div>

@@ -45,7 +45,7 @@ const [hover, setHover] = useState(false);
   };
 
   return (
-    <section className="w-full z-100 py-20 flex flex-col items-center bg-gradient-to-b from-black/10 via-[#051d13]/60 to-black/10 ">
+    <section id="faqs" className="w-full z-100 py-20 flex flex-col items-center bg-gradient-to-b from-black/10 via-[#051d13]/60 to-black/10 ">
            
 
       <h2 className="text-3xl md:text-4xl font-semibold mb-12 text-white tracking-wide text-center">

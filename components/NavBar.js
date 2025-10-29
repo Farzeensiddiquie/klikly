@@ -35,7 +35,7 @@ export default function NavBar() {
             { href: "/", label: "Home" },
             { href: "/portfolio", label: "Portfolio" },
             { href: "/about", label: "About" },
-            { href: "/services", label: "Services" },
+           
           ].map(({ href, label }) => (
             <Link
               key={href}
@@ -80,7 +80,7 @@ export default function NavBar() {
               { href: "/", label: "Home" },
               { href: "/portfolio", label: "Portfolio" },
               { href: "/about", label: "About" },
-              { href: "/services", label: "Services" },
+            
             ].map(({ href, label }) => (
               <Link
                 key={href}

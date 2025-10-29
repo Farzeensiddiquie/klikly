@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function CTASection() {
   // Make Link motion-enabled
-  const MotionLink = motion(Link);
+  const MotionLink = motion.create(Link);
 
   return (
     <section className="cta mb-30 relative overflow-hidden max-w-280 rounded-3xl bg-[#04130C]/20 py-20 px-6 flex items-center justify-center mx-auto border border-[#1f3a29]">
@@ -50,7 +50,7 @@ export default function CTASection() {
       >
         <h2 className="text-white font-mono text-2xl font-semibold mb-4 leading-tight">
           Curious how branding can <br />
-          elevate your business?
+          Elevate your business?
         </h2>
 
         <p className="text-gray-300 text-sm mb-8">

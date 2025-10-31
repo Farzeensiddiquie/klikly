@@ -5,10 +5,48 @@ import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
 import NavBar from '@/components/NavBar';
 import Image from 'next/image';
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import RobotCanvas from '@/components/RobotCanvas';
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
+  const formRef = useRef(null);
+  const [loading, setLoading] = useState(false);
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (loading) return;
+    setLoading(true);
+
+    try {
+      await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      );
+
+      setForm({ name: "", email: "", message: "" });
+      alert("✅ Message sent successfully!");
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      alert("❌ Something went wrong!");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const whatsappNumber = "+923096726374";
   const whatsappLink = `https://wa.me/${whatsappNumber.replace(/\D/g, "")}`;
 
@@ -24,10 +62,12 @@ export default function Contact() {
 
         {/* Main Section */}
         <div className="flex justify-center items-center md:mt-20 px-4 md:px-0">
-          <div className="flex flex-col-reverse md:flex-row items-center gap-10 max-w-7xl w-full">
+          <div className="flex flex-col-reverse md:flex-row items-center gap-10 max-w-280 w-full">
 
             {/* Form */}
-            <motion.div
+            <motion.form
+              ref={formRef}
+              onSubmit={handleSubmit}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -37,26 +77,42 @@ export default function Contact() {
 
               <input
                 type="text"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
                 placeholder="Your Name"
+                required
                 className="w-full md:w-4/5 mb-5 p-3 rounded-lg bg-black/20 border border-[#1f3a29]/50 text-white focus:outline-none focus:ring-2 focus:ring-[#01ff83]/50 transition-all duration-300"
               />
 
               <input
                 type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
                 placeholder="Your Email"
+                required
                 className="w-full md:w-4/5 mb-5 p-3 rounded-lg bg-black/20 border border-[#1f3a29]/50 text-white focus:outline-none focus:ring-2 focus:ring-[#01ff83]/50 transition-all duration-300"
               />
 
               <textarea
+                name="message"
+                value={form.message}
+                onChange={handleChange}
                 placeholder="Your Message"
+                required
                 className="w-full md:w-4/5 mb-5 p-3 rounded-lg bg-black/20 border border-[#1f3a29]/50 text-white focus:outline-none focus:ring-2 focus:ring-[#01ff83]/50 transition-all duration-300 h-32 resize-none"
               />
 
-              <button className="cursor-pointer hover:bg-[#01ff83]/40 text-white font-semibold py-2 px-6 rounded-lg border border-[#1f3a29]/50 hover:border-[#01ff83]/70 transition-all duration-300">
-                Send Message
+              <button
+                type="submit"
+                disabled={loading}
+                className="cursor-pointer hover:bg-[#01ff83]/40 text-white font-semibold py-2 px-6 rounded-lg border border-[#1f3a29]/50 hover:border-[#01ff83]/70 transition-all duration-300 disabled:opacity-50"
+              >
+                {loading ? "Sending..." : "Send Message"}
               </button>
 
-              {/* OR Divider */}
+              {/* Divider */}
               <div className="flex items-center w-full md:w-4/5 my-5">
                 <hr className="flex-grow border border-[#1f3a29]/50" />
                 <span className="mx-3 text-[#01ff83]/80 font-semibold">OR</span>
@@ -71,20 +127,13 @@ export default function Contact() {
                 className="cursor-pointer flex gap-3 bg-[#20974c] hover:bg-[#1ebe57] text-white font-semibold py-2 px-6 rounded-lg border border-[#1f3a29]/50 transition-all duration-300"
               >
                 Contact via WhatsApp
-                <Image src={'/images/whatsapp.png'} width={30} alt='whatsapp' height={30}/>
+                <Image src={'/images/whatsapp.png'} width={30} alt='whatsapp' height={30} />
               </a>
-            </motion.div>
+            </motion.form>
 
-            {/* Image */}
+            {/* Right Side Model */}
             <div className="w-full md:w-1/2 flex justify-center">
-              <Image
-                src="/images/contact.png"
-                width={500}
-                height={500}
-                priority
-                className="h-auto object-cover z-[1000] object-right"
-                alt="contact"
-              />
+              <RobotCanvas />
             </div>
           </div>
         </div>

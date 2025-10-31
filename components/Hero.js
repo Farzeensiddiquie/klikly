@@ -88,7 +88,7 @@ export default function Hero() {
             <div className="flex gap-4 pt-6">
               <Link
                 href="#projects"
-                className="bg-[#01ff83] text-xl font-semibold border-t-2 text-center text-[#0f1a11] w-[150px] h-[40px] p-1 rounded-full"
+                className="bg-[#20974c] text-xl  hover:bg-[#1ebe57] font-semibold  text-center text-[#a1ffbc] w-[150px] h-[40px] p-1 rounded-full"
               >
                 Our work
               </Link>

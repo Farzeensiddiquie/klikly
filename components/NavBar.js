@@ -19,7 +19,7 @@ export default function NavBar() {
   const pathname = usePathname(); // ✅ moved inside component
 
   return (
-    <div className="bg-[#024f27]/60 md:border-t-2 md:border-[#00622b] backdrop-blur-sm shadow-2xl w-full h-14 md:rounded-3xl max-w-280 relative lg:top-5 flex items-center justify-between px-6 z-50">
+    <div className="md:bg-[#024f27]/60 bg-[#024f27]/60 md:border-t-2 md:border-[#00622b] backdrop-blur-sm shadow-2xl w-full h-14 md:rounded-3xl max-w-280 relative lg:top-5 flex items-center justify-between px-6 z-50">
       {/* Left Logo */}
       <div className='flex items-center gap-3 '> 
        <div className="text-[#00FF84] text-2xl font-mono font-extrabold">
@@ -35,7 +35,7 @@ export default function NavBar() {
             { href: "/", label: "Home" },
             { href: "/portfolio", label: "Portfolio" },
             { href: "/about", label: "About" },
-           
+           { href: "/contact", label: "Contact" },
           ].map(({ href, label }) => (
             <Link
               key={href}
@@ -58,12 +58,7 @@ export default function NavBar() {
         </button>
 
         {/* Desktop "Contact" Button */}
-        <Link
-          href="/contact"
-          className={`hidden md:block bg-[#01ff83] ${roboto.className} text-[#0f1a11] px-4 py-2 rounded-full hover:text-[#021205be] transition`}
-        >
-          Contact Us
-        </Link>
+       
       </div>
 
       {/* Mobile Menu */}
@@ -80,7 +75,7 @@ export default function NavBar() {
               { href: "/", label: "Home" },
               { href: "/portfolio", label: "Portfolio" },
               { href: "/about", label: "About" },
-            
+            { href: "/contact", label: "Contact" },
             ].map(({ href, label }) => (
               <Link
                 key={href}
@@ -94,13 +89,7 @@ export default function NavBar() {
               </Link>
             ))}
 
-            <Link
-              onClick={() => setMenuOpen(false)}
-              href="/contact"
-              className={`bg-[#01ff83] ${roboto.className} text-[#002707] px-5 py-2 rounded-full text-lg transition hover:bg-[#01ff83]/80`}
-            >
-              Contact Us
-            </Link>
+            
           </motion.div>
         )}
       </AnimatePresence>

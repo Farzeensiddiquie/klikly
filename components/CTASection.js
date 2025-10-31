@@ -54,7 +54,7 @@ export default function CTASection() {
         </h2>
 
         <p className="text-gray-300 text-sm mb-8">
-          Let’s talk! Book a free consultation and discover how Pixel+ <br /> can grow
+          Let’s talk! Book a free consultation and discover how <span className="text-sm text-green-400 font-bold font-mono"> Kl!kly </span><br /> can grow
           your brand.
         </p>
 

@@ -8,6 +8,7 @@ import NavBar from "@/components/NavBar";
 import Stats from "@/components/Stats";
 import Image from "next/image";
 import OwnerCard from "@/components/OwnerCard";
+import EmployeCard from "@/components/EmployeCard";
 
 export default function About() {
   // Reusable motion variants
@@ -66,7 +67,7 @@ export default function About() {
               className="text-sm md:text-lg leading-relaxed text-gray-300"
             >
               At{" "}
-              <span className="text-green-400 font-semibold">Klikly</span>, creativity meets motion.
+              <span className="text-green-400 font-semibold font-mono">Kl!kly</span>, creativity meets motion.
               We’re a forward-thinking digital agency built for brands that dare to stand out.
               From sleek interfaces to immersive animations, we transform ideas into living, breathing
               digital experiences. Every pixel, every transition, every glow — crafted to connect emotion
@@ -101,6 +102,7 @@ export default function About() {
             </motion.p>
             <Stats />
             <OwnerCard/>
+            <EmployeCard/>
           </motion.div>
 
             

@@ -67,7 +67,7 @@ export default function BackgroundEffects() {
             >
               <img
                 src={`https://fxology.com/wp-content/themes/fxology-theme/assets/images/${star.src}.svg`}
-                alt=""
+                alt="dust"
                 className="w-full h-full"
               />
             </div>
@@ -78,7 +78,7 @@ export default function BackgroundEffects() {
       <div className="hidden md:block absolute left-[57px] top-[585px] w-[1613.42px] h-[315.28px] opacity-30">
         <img
           src="https://fxology.com/wp-content/themes/fxology-theme/assets/images/6889d758653e645c96320df3bb608273fc84fb2e.svg"
-          alt=""
+          alt="dust"
           className="w-full h-full"
         />
       </div>

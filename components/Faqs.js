@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 import CircularCursor from "./CursorComponent";
 
@@ -65,7 +65,7 @@ const [hover, setHover] = useState(false);
               layout
               initial={false}
               className="bg-[#0a1c12]/60 border border-[#1f3a29] rounded-2xl backdrop-blur-sm overflow-hidden"
-              transition={{ type: "spring", stiffness: 70, damping: 28 }}
+              transition={{ layout: { duration: 0.4, ease: "easeInOut" } }}
             >
               {/* Question button */}
               <button
@@ -82,16 +82,20 @@ const [hover, setHover] = useState(false);
                 </span>
               </button>
 
-              {/* Content wrapper with layout animation */}
-              <motion.div
-                layout
-                initial={{ opacity: 0 }}
-                animate={{ opacity: isOpen ? 1 : 0 }}
-                transition={{ opacity: { duration: 0.25 } }}
-                className="px-5 md:px-6  text-gray-300 text-sm md:text-base"
-              >
-                {isOpen && faq.answer}
-              </motion.div>
+              {/* Content wrapper with smooth animation */}
+              <AnimatePresence mode="wait">
+                {isOpen && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.4 }}
+                    className="px-5 md:px-6 pb-5 md:pb-6 text-gray-300 text-sm md:text-base"
+                  >
+                    {faq.answer}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           );
         })}

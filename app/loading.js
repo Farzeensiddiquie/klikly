@@ -1,12 +1,14 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 export default function Loading() {
   const [progress, setProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
   const controls = useAnimation();
+  const router = useRouter();
 
   // Rotate glow ring
   useEffect(() => {
@@ -16,9 +18,9 @@ export default function Loading() {
     });
   }, [controls]);
 
-  // Smooth 0→100 count (exactly 5 seconds)
+  // Smooth 0→100 count with dynamic timing
   useEffect(() => {
-    const totalDuration = 5000; // 5 seconds
+    const totalDuration = 3000; // 3 seconds (faster for better UX)
     const steps = 100;
     const timePerStep = totalDuration / steps;
     let current = 0;
@@ -31,7 +33,7 @@ export default function Loading() {
         setTimeout(() => {
           setFadeOut(true);
           setTimeout(() => setIsVisible(false), 600);
-        }, 300);
+        }, 200);
       }
     }, timePerStep);
 

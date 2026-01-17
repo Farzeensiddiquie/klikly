@@ -6,31 +6,20 @@ export default function EmployeCard() {
     {
       id: 1,
       title: "Masna Siddiqui",
-      desc: "CEO & Co-Founder.",
+      desc: "CEO & Co-Founder",
       img: "/images/ceo.png",
-      background: "bg-gradient-to-tl ",
+      background: "bg-gradient-to-tl",
       gradient:
         "bg-[radial-gradient(circle_at_top_left,_#06572e_0%,_rgba(4,28,17,0.4)_47%),linear-gradient(135deg,_rgba(4,28,0,0.8)_0%,_#070e0a_100%)]",
     },
-    { id: 2, title: "Farzeen Siddiqui", desc: "Web & Mobile App Developer.", background: "bg-gradient-to-b", img: "/images/ceo.png",
+    {
+      id: 2,
+      title: "Farzeen Siddiqui",
+      desc: "Web & Mobile App Developer",
+      background: "bg-gradient-to-b",
+      img: "/images/ceo.png",
       gradient:
         "bg-[radial-gradient(circle_at_bottom_center,_#06572e_0%,_rgba(4,28,17,0.4)_47%),linear-gradient(135deg,_rgba(4,28,0,0.8)_0%,_#070e0a_100%)]",
-    },
-    { id: 3, title: "Project Three", desc: "hey", background: "bg-gradient-to-tr", img: "/images/ceo.png",
-      gradient:
-        "bg-[radial-gradient(circle_at_top_right,_#06572e_0%,_rgba(4,28,17,0.4)_47%),linear-gradient(135deg,_rgba(4,28,0,0.8)_0%,_#070e0a_100%)]",
-    },
-    { id: 4, title: "Project Four", desc: "hey", background: "bg-gradient-to-bl", img: "/images/ceo.png",
-      gradient:
-        "bg-[radial-gradient(circle_at_bottom_left,_#06572e_0%,_rgba(4,28,17,0.4)_47%),linear-gradient(135deg,_rgba(4,28,0,0.8)_0%,_#070e0a_100%)]",
-    },
-    { id: 5, title: "Project Five", desc: "hey", background: "bg-gradient-to-t", img: "/images/ceo.png",
-      gradient:
-        "bg-[radial-gradient(circle_at_top_center,_#06572e_0%,_rgba(4,28,17,0.4)_47%),linear-gradient(135deg,_rgba(4,28,0,0.8)_0%,_#070e0a_100%)]",
-    },
-    { id: 6, title: "Project Six", desc: "hey", background: "bg-gradient-to-br", img: "/images/ceo.png",
-      gradient:
-        "bg-[radial-gradient(circle_at_bottom_right,_#06572e_0%,_rgba(4,28,17,0.4)_47%),linear-gradient(135deg,_rgba(4,28,0,0.8)_0%,_#070e0a_100%)]",
     },
   ];
 

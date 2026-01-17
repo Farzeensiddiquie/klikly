@@ -41,7 +41,7 @@ export default function Contact() {
       alert("✅ Message sent successfully!");
     } catch (error) {
       console.error("EmailJS Error:", error);
-      alert("❌ Something went wrong!");
+      alert("❌ Failed to send message. Please try again or contact us via WhatsApp.");
     } finally {
       setLoading(false);
     }

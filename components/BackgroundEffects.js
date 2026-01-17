@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from 'next/image'
 
 export default function BackgroundEffects() {
   return (
@@ -65,9 +66,12 @@ export default function BackgroundEffects() {
               className="w-[120px] h-[2px] origin-center md:w-[165px]"
               style={{ transform: "rotate(315deg)" }}
             >
-              <img
+              <Image
                 src={`https://fxology.com/wp-content/themes/fxology-theme/assets/images/${star.src}.svg`}
                 alt="dust"
+                width={165}
+                height={24}
+                unoptimized
                 className="w-full h-full"
               />
             </div>
@@ -76,11 +80,15 @@ export default function BackgroundEffects() {
 
       {/* 🌫️ Dust Particles */}
       <div className="hidden md:block absolute left-[57px] top-[585px] w-[1613.42px] h-[315.28px] opacity-30">
-        <img
-          src="https://fxology.com/wp-content/themes/fxology-theme/assets/images/6889d758653e645c96320df3bb608273fc84fb2e.svg"
-          alt="dust"
-          className="w-full h-full"
-        />
+        <div className="relative w-full h-full">
+          <Image
+            src="https://fxology.com/wp-content/themes/fxology-theme/assets/images/6889d758653e645c96320df3bb608273fc84fb2e.svg"
+            alt="dust"
+            fill
+            unoptimized
+            className="object-cover"
+          />
+        </div>
       </div>
 
      

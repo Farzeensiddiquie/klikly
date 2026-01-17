@@ -65,17 +65,19 @@ export default function Portfolio() {
           {/* ✅ Responsive Grid */}
           <div className=" z-100 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-5 max-w-280 w-full pb-20">
             {works.map((item) => (
-             <div className='bg-gradient-to-r from-[#092e1b] to-[#1f7e4f]  rounded-3xl p-[1.5px] transition-all duration-300 hover:scale-105 '> <div
-                key={item.id}
+             <div key={item.id} className='bg-gradient-to-r from-[#092e1b] to-[#1f7e4f]  rounded-3xl p-[1.5px] transition-all duration-300 hover:scale-105 '>
+               <div
                 className={`h-94 w-full rounded-3xl flex justify-center items-center bg-[#092e1b] ${item.gradient} p-6 cursor-pointer hover:shadow-lg hover:shadow-green-500/20 transition-all duration-300`}
               >
                 <span className="font-bold text-lg">{item.title}</span>
-              </div></div>
+              </div>
+             </div>
             ))}
           </div>
         </div>
       </div>
 
+      
       <CTASection />
       <Footer />
     </>

@@ -20,7 +20,7 @@ export default function Footer() {
           <Link href="/" className="hover:text-[#00FF84] transition">Home</Link>
           <Link href="/about" className="hover:text-[#00FF84] transition">About</Link>
           <Link href="/portfolio" className="hover:text-[#00FF84] transition">Work</Link>
-          <a href="/#faqs" className="hover:text-[#00FF84] transition">FAQs</a>
+          <Link href="/#faqs" className="hover:text-[#00FF84] transition">FAQs</Link>
         </nav>
 
         {/* Right Section */}

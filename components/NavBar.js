@@ -19,7 +19,7 @@ export default function NavBar() {
   const pathname = usePathname(); // ✅ moved inside component
 
   return (
-    <div className="md:bg-[#024f27]/60 bg-[#024f27]/60 md:border-t-2 md:border-[#00622b] backdrop-blur-sm shadow-2xl w-full h-14 md:rounded-3xl max-w-280 relative lg:top-5 flex items-center justify-between px-6 z-50">
+    <div className="md:bg-[#024f27]/60 bg-[#024f27]/60 md:border-t-2 md:border-[#00622b] backdrop-blur-sm shadow-2xl w-full h-14 md:rounded-3xl max-w-280 relative lg:top-5 flex items-center justify-between px-6 z-5000">
       {/* Left Logo */}
       <div className='flex items-center gap-3 '> 
        <div className="text-[#00FF84] text-2xl font-mono font-extrabold">

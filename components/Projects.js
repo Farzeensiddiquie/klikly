@@ -9,23 +9,23 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
-      label: "Web App",
-      title: "Klikly Digital Agency",
+      label: "Branding & Website",
+      title: "Brand Identity Design",
       description:
-        "A modern digital agency website with 3D visuals, smooth animations, and responsive design.",
-      tags: ["React", "GSAP", "Framer Motion"],
+        "Brand identity design for a modern tech startup, including logo, color scheme, and website.",
+      tags: ["Photoshop", "Figma", "Illustraotor"],
       image: "/images/project1.jpg",
       buttonText: "View Project",
       link: "#",
     },
     {
       id: 2,
-      label: "Mobile App",
-      title: "Foodify Delivery",
+      label: "Web and Mobile App",
+      title: "Order.Uk",
       description:
         "A seamless food delivery app with real-time tracking and Firebase integration.",
-      tags: ["React Native", "Firebase", "Node.js"],
-      image: "/images/project1.jpg",
+      tags: ["React Native","Next.js", "Firebase", "Node.js"],
+      image: "/images/project2.png",
       buttonText: "View Project",
       link: "#",
     },
@@ -36,7 +36,7 @@ export default function Projects() {
       description:
         "A powerful admin dashboard featuring charts, stats, and dynamic data visualization.",
       tags: ["Next.js", "Tailwind", "Chart.js"],
-      image: "/images/project1.jpg",
+      image: "/images/project3.png",
       buttonText: "View Project",
       link: "#",
     },
